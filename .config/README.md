@@ -58,3 +58,4 @@ Some config files in `.config` need to be in `~/`, so make symlinks:
 - `ln -s .config/.Xresources .Xresources`
 - `ln -s .config/.bashrc .bashrc`
 - `ln -s .config/.bash_aliases .bash_aliases`
+- `ln -s .config/urxvt .urxvt`
