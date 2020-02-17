@@ -110,6 +110,8 @@ let R_openhtml = 2
 
 " Python settings:
 let python_highlight_all=1
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_python_python_exec = 'python3'
 " Run black on save:
 autocmd BufWritePre *.py execute ':Black'
 

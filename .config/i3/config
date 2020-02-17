@@ -207,9 +207,20 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #        status_command i3status
 #}
 
+# Tray:
+exec --no-startup-id blueman-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id udiskie --no-automount --tray
+
+
+# setup nvidia hack
 exec --no-startup-id bash /usr/bin/setup-nvidia.sh
 
 exec conky
+
+#screenshots:
+# OSX-like area selection screenshots
+bindsym --release Shift+Print exec scrot -s 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # Area selection
 
 # solid wallpaper color
 exec --no-startup-id xsetroot -solid "#000000"
