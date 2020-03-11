@@ -68,5 +68,7 @@ Some config files in `.config` need to be in `~/`, so make symlinks:
 
 ## Copy setup-nvidia script to /usr/bin/setup-nvidia.sh and make executable:
 
+setup-nvidia is a script found [here](https://ebobby.org/2018/08/06/archlinux-nvidia-on-oryp4/) that fixes the black-screen issue when using i3wm with nvidia GPUs (I've had this issue with multiple computers that have both discreet and integrated GPUs)
+
 - `sudo cp .config/setup-nvidia.sh /usr/bin/setup-nvidia.sh`
 - `sudo chmod +x /usr/bin/setup-nvidia.sh`
