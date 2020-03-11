@@ -65,3 +65,8 @@ Some config files in `.config` need to be in `~/`, so make symlinks:
 - `ln -s .config/.bashrc .bashrc`
 - `ln -s .config/.bash_aliases .bash_aliases`
 - `ln -s .config/urxvt .urxvt`
+
+## Copy setup-nvidia script to /usr/bin/setup-nvidia.sh and make executable:
+
+- `sudo cp .config/setup-nvidia.sh /usr/bin/setup-nvidia.sh`
+- `sudo chmod +x /usr/bin/setup-nvidia.sh`
