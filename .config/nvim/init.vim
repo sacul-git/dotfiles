@@ -49,7 +49,7 @@ set clipboard+=unnamedplus
 
 " Slime:
 let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": "default", "target_pane": "{down-of}"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
 let g:slime_python_ipython = 1
 autocmd FileType python xnoremap <buffer> <C-M> :SlimeSend<cr>
 autocmd FileType python nnoremap <buffer> <C-M> :SlimeSend<cr>
