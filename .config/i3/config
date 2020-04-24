@@ -141,9 +141,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# workspace monitor outputs
-workspace 6 output HDMI-0
-workspace 7 output HDMI-0
+# move workspace to next monitor
+bindsym $mod+m move workspace to output left
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -230,3 +229,4 @@ exec --no-startup-id setxkbmap -option compose:ralt
 
 exec killall -q notify-osd
 exec --no-startup-id dunst
+

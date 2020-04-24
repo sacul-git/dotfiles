@@ -40,12 +40,17 @@ Plugin 'jpalardy/vim-slime.git'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'psf/black'
+Plugin 'exu/pgsql.vim'
+Plugin 'chiel92/vim-autoformat'
+Plugin 'lervag/vimtex'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set clipboard+=unnamedplus
 
+let g:vimtex_view_general_viewer = 'okular'
+let g:vimtex_compiler_engine = 'lualatex'
 
 " Slime:
 let g:slime_target = "tmux"
@@ -54,8 +59,11 @@ let g:slime_python_ipython = 1
 autocmd FileType python xnoremap <buffer> <C-M> :SlimeSend<cr>
 autocmd FileType python nnoremap <buffer> <C-M> :SlimeSend<cr>
 autocmd BufRead,BufNewFile *.jl :set filetype=julia
+autocmd BufRead,BufNewFile *.sql :set filetype=sql
 autocmd FileType julia xnoremap <buffer> <C-M> :SlimeSend<cr>
 autocmd FileType julia nnoremap <buffer> <C-M> :SlimeSend<cr>
+autocmd FileType sql xnoremap <buffer> <C-M> :SlimeSend<cr>
+autocmd FileType sql nnoremap <buffer> <C-M> :SlimeSend<cr>
 
 " NERDTree
 map <C-o> :NERDTreeToggle<CR>
@@ -113,7 +121,13 @@ let python_highlight_all=1
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = 'python3'
 " Run black on save:
+let g:black_linelength = 79
 autocmd BufWritePre *.py execute ':Black'
+
+" sql
+let g:syntastic_sql_checker = ['sqlint']
+let g:sql_type_default = 'pgsql'
+"autocmd BufWritePre *.sql execute ':Autoformat'
 
 " line numbers:
 set number

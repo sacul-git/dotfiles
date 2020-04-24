@@ -1,9 +1,9 @@
 URxvt.font: xft:Hermit:pixelsize=15, xft:FontAwesome:pixelsize=15:minspace=False
 URxvt.scrollBar: false
- 
+
 ! special
 *.foreground:   #d0d0d0
-*.background:   #a0000000
+*.background:   #000000
 *.cursorColor:  #d615a6
 
 ! black
