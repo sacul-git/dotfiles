@@ -122,21 +122,6 @@ if ! shopt -oq posix; then
 fi
 alias config='/usr/bin/git --git-dir=/home/lucas/.cfg/ --work-tree=/home/lucas'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lucas/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/lucas/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lucas/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lucas/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
 TERM=xterm-256color
 
 
@@ -189,3 +174,4 @@ function parse_git_dirty {
 }
 
 export PS1="\[\e[35m\]\u\[\e[m\]\[\e[35;40m\]@\[\e[m\]\[\e[35m\]\h\[\e[m\]:\W\[\e[32m\]\`parse_git_branch\`\[\e[m\]\\$ "
+export EDITOR=nvim

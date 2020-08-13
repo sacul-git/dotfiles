@@ -1,4 +1,5 @@
 set nocompatible              " be iMproved, required
+set nomodeline
 syntax on
 
 " show existing tab with 2 spaces width
@@ -7,6 +8,7 @@ set tabstop=2
 set shiftwidth=2
 " On pressing tab, insert 2 spaces
 set expandtab
+
 
 set mouse=a
 
@@ -37,20 +39,37 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-sensible'
 Plugin 'chrisbra/csv.vim'
 Plugin 'jpalardy/vim-slime.git'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'psf/black'
-Plugin 'exu/pgsql.vim'
+Plugin 'lifepillar/pgsql.vim'
 Plugin 'chiel92/vim-autoformat'
+Plugin 'tell-k/vim-autopep8'
 Plugin 'lervag/vimtex'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'davidhalter/jedi'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set clipboard+=unnamedplus
 
+let g:python3_host_prog = '/usr/bin/python3'
+
+" YouCompleteMe and Jedi
+let g:ycm_python_interpreter_path = ''
+let g:ycm_python_sys_path = []
+let g:ycm_extra_conf_vim_data = [
+  \  'g:ycm_python_interpreter_path',
+  \  'g:ycm_python_sys_path'
+  \]
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/ycm_venv_config.py'
+let g:ycm_autoclose_preview_window_after_completion=0
+
+let g:jedi#popup_on_dot = 0
+let g:jedi#use_tabs_not_buffers = 1
+
+" vimtex
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_compiler_engine = 'lualatex'
+let g:tex_flavor = 'latex'
 
 " Slime:
 let g:slime_target = "tmux"
@@ -81,6 +100,8 @@ autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
 vmap <C-M> <Plug>RDSendSelection
 nmap <C-M> <Plug>RDSendLine
 " Use Ctrl+Space to do omnicompletion:
+
+
 if has('nvim') || has('gui_running')
    inoremap <C-Space> <C-x><C-o>
 else
@@ -120,9 +141,10 @@ let R_openhtml = 2
 let python_highlight_all=1
 let g:syntastic_python_checkers = ['python']
 let g:syntastic_python_python_exec = 'python3'
-" Run black on save:
-let g:black_linelength = 79
-autocmd BufWritePre *.py execute ':Black'
+let g:autopep8_disable_show_diff=1
+let g:autopep8_aggressive=2
+au FileType python setlocal formatprg=autopep8\ -
+"let g:autopep8_on_save = 1
 
 " sql
 let g:syntastic_sql_checker = ['sqlint']

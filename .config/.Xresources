@@ -43,7 +43,7 @@ URxvt*geometry: 240x84
 
 ! enable real transparency
 urxvt*depth: 32
-urxvt*background: rgba:0000/0000/0200/a000
+urxvt*background: rgba:0000/0000/0200/c900
 
 URxvt.perl-ext-common: 	default,matcher,resize-font,keyboard-select
 URxvt.keysym.M-Escape: 	perl:keyboard-select:activate
